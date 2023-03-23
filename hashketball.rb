@@ -128,15 +128,23 @@ end
 
 # Write code here
 
-def num_points_scored(player_name)
+def num_points_scored(player_name) #takes in a player name as an argument
+  # Iterating over each team and each player in the `game_hash`
   game_hash.each do |team, team_data|
     team_data[:players].each do |player|
       if player[:player_name] == player_name
         return player[:points]
+        # When it finds a player whose player_name matches the argument passed in, it returns that player's points.
       end
     end
   end
 end
+
+# If we reach the end of the method without finding a matching player, it returns nil.
+
+# puts num_points_scored("Jeff Adrien") => 10
+# puts num_points_scored("Ben Gordon") => 33
+# puts num_points_scored("James Engelsmann") => nil 
 
 def shoe_size(player_name)
   game_hash.each do |team, team_data|
